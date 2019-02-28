@@ -1,12 +1,14 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity // tells your app that a table should be created in your database that has the below fields
 public class Todo {
@@ -18,9 +20,13 @@ public class Todo {
     @Size(min = 4)
     public String taskName;
 
-    @NotNull
-    @Size(min = 3)
-    public String dueDate;
+//    @NotNull
+//    @Size(min = 3)
+//    public String dueDate;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "MM-dd-YY")
+    private Date dueDate;
 
     @NotNull
     @Size(min = 1)
@@ -52,11 +58,11 @@ public class Todo {
         this.taskName = taskName;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -76,11 +82,11 @@ public class Todo {
         this.description = description;
     }
 
-    public boolean isCompleted() {
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 
-    public void setCompleted(boolean completed) {
+    public void setIsCompleted(boolean completed) {
         isCompleted = completed;
     }
 }

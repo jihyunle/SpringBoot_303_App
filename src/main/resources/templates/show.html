@@ -1,9 +1,10 @@
-<!-- change this method so that detailed page shows current task in different layout than other tasks.
-     This will be show in show.html -->
+<!-- show current task in different layout than other tasks. -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Title</title>
 </head>
 <body>
@@ -12,11 +13,11 @@
     <!-- This shows the current task -->
     <section class="container text-left">
         Task Name : <span th:text="${todo.taskName}"></span><br>
-        Due Date  : <span th:text="${todo.dueDate}"></span><br>
+        Due Date  : <span th:text="${#dates.format(todo.dueDate, 'MM-dd-YY')}"></span><br>
         Priority  : <span th:text="${todo.priority}"></span><br>
         Description : <span th:text="${todo.description}"></span><br>
         Completed? : <span th:text="${todo.isCompleted}"></span><br>
-        <a th:href="@{/delete/{id}(id=${todo.id})}">Delete this to-do</a>
+        <a th:href="@{/delete/{id}(id=${todo.id})}">Delete this item</a>
     </section>
 
     <!-- This shows all tasks including current one -->

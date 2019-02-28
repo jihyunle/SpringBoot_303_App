@@ -23,10 +23,16 @@ public class Todo {
     public String dueDate;
 
     @NotNull
-    @Min(1)
-    public int priority;
+    @Size(min = 1)
+    public String priority;
 
-    public Todo(){
+    @NotNull
+    @Size(min = 10)
+    public String description;
+
+    public boolean isCompleted;
+
+    public Todo() {
 
     }
 
@@ -54,11 +60,27 @@ public class Todo {
         this.dueDate = dueDate;
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
     }
 }

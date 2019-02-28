@@ -1,3 +1,5 @@
+<!-- change this method so that detailed page shows current task in different layout than other tasks.
+     This will be show in show.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
@@ -6,10 +8,40 @@
 </head>
 <body>
     <a href="/">Show All Todo Items</a><br><br>
-    Task Name : <span th:text="${todo.taskName}"></span><br>
-    Due Date  : <span th:text="${todo.dueDate}"></span><br>
-    Priority  : <span th:text="${todo.priority}"></span><br>
-    <a href="@{/delete/{id}(id=${todo.id})}">Delete this to-do</a>
 
+    <!-- This shows the current task -->
+    <section class="container text-left">
+        Task Name : <span th:text="${todo.taskName}"></span><br>
+        Due Date  : <span th:text="${todo.dueDate}"></span><br>
+        Priority  : <span th:text="${todo.priority}"></span><br>
+        Description : <span th:text="${todo.description}"></span><br>
+        Completed? : <span th:text="${todo.isCompleted}"></span><br>
+        <a th:href="@{/delete/{id}(id=${todo.id})}">Delete this to-do</a>
+    </section>
+
+    <!-- This shows all tasks including current one -->
+    <section class="container text-right">
+        <table>
+            <tr>
+                <th>Task Name</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Desciption</th>
+                <th>Completed?</th>
+            </tr>
+            <tr th:each="todo : ${todos}">
+                <td th:text="${todo.taskName}"></td>
+                <td th:text="${todo.dueDate}"></td>
+                <td th:text="${todo.priority}"></td>
+                <td th:text="${todo.description}"></td>
+                <td th:text="${todo.isCompleted}"></td>
+                <td>
+                    <a th:href="@{/update/{id}(id=${todo.id})}">Update</a>
+                    <a th:href="@{/detail/{id}(id=${todo.id})}">Details</a>
+                    <a th:href="@{/delete/{id}(id=${todo.id})}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </section>
 </body>
 </html>

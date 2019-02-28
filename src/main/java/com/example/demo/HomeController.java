@@ -33,12 +33,15 @@ public class HomeController {
     @PostMapping("/process")
     public String processForm(@Valid Todo todo, BindingResult result){
         if (result.hasErrors()){
-            return "todoform"; // todoform also validates
+            return "todoform"; // todoform also validates entries
         }
         todoRepository.save(todo);
         return "redirect:/"; // redirects the user to default route "/"
     }
 
+
+    /* change this method so that detailed page shows current task in different layout than other tasks.
+    * This will be show in show.html*/
     @RequestMapping("/detail/{id}")
     public String showCourse(@PathVariable("id") long id, Model model){
         model.addAttribute("todo",todoRepository.findById(id).get());
@@ -54,7 +57,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String delCourse(@PathVariable("id") long id){
         todoRepository.deleteById(id);
-        return "redirect:/";
+        return "redirect:/"; // delete then redirect to list
 
     }
 }

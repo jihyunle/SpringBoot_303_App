@@ -5,9 +5,14 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Title</title>
+    <title>To-Do Details</title>
+    <th:block th:insert="base :: header"></th:block>
 </head>
 <body>
+    <nav th:replace="base :: nav"></nav>
+
+    <h1>To-Do Details</h1>
+
     <a href="/">Show All Todo Items</a><br><br>
 
     <!-- This shows the current task -->
@@ -44,5 +49,7 @@
             </tr>
         </table>
     </section>
+
+    <span th:replace="base :: jslinks"></span>
 </body>
 </html>

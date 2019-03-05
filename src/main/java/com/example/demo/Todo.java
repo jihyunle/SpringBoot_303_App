@@ -18,7 +18,7 @@ public class Todo {
 
     @NotNull
     @Size(min = 4)
-    public String taskName;
+    private String taskName;
 
 //    @NotNull
 //    @Size(min = 3)

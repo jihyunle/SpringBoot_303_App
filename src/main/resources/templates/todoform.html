@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,9 +28,9 @@
         <span th:if="${#fields.hasErrors('dueDate')}"
               th:errors="*{dueDate}"></span><p></p>
 
-        Priority : <br><input type="radio" value="priority" th:field="*{priority}" />High <br>
-                        <input type="radio" value="priority" th:field="*{priority}" />Medium <br>
-                        <input type="radio" value="priority" th:field="*{priority}" />Low <p></p>
+        Priority : <br><input type="radio" value="High" th:field="*{priority}" />High <br>
+                        <input type="radio" value="Medium" th:field="*{priority}" />Medium <br>
+                        <input type="radio" value="Low" th:field="*{priority}" />Low <p></p>
 
         <span th:if="${#fields.hasErrors('priority')}"
               th:errors="*{priority}"></span><p></p>
@@ -40,7 +40,7 @@
         <span th:if="${#fields.hasErrors('description')}"
               th:errors="*{description}"></span><p></p>
 
-        Completed? : <input type="checkbox" th:field="*{isCompleted}" /> Well done! <br>
+        Completed? : <input type="checkbox" th:field="*{isCompleted}" />Well done! <br>
 
         <span th:if="${#fields.hasErrors('isCompleted')}"
               th:errors="*{isCompleted}"></span><br>

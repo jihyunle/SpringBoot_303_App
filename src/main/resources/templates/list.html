@@ -1,6 +1,6 @@
 <!-- Main list of all items -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>To do List</title>
@@ -16,7 +16,7 @@
             <th>Task Name</th>
             <th>Due Date</th>
             <th>Priority</th>
-            <th>Desciption</th>
+            <th>Description</th>
             <th>Completed?</th>
         </tr>
         <tr th:each="todo : ${todos}">

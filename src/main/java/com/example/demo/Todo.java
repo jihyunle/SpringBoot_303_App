@@ -14,7 +14,7 @@ import java.util.Date;
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long id;
+    private long id;
 
     @NotNull
     @Size(min = 4)
@@ -30,13 +30,13 @@ public class Todo {
 
     @NotNull
     @Size(min = 1)
-    public String priority;
+    private String priority;
 
     @NotNull
     @Size(min = 10)
-    public String description;
+    private String description;
 
-    public boolean isCompleted;
+    private boolean isCompleted;
 
     public Todo() {
 

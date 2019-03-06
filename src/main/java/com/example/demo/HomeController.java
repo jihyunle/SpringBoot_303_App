@@ -14,6 +14,7 @@ import java.util.Date;
 @Controller
 public class HomeController {
 
+    /* All vars must be PRIVATE. Spring won't work otherwise.*/
     @Autowired
     TodoRepository todoRepository;
 
